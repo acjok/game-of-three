@@ -3,7 +3,7 @@ package com.test.game.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "moves")
 public class Move {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "game_id")

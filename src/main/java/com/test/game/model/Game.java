@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.util.List;
 
-@Entity
+@Entity(name = "games")
 public class Game {
     @Min(10)
     @Column(name = "start_number")

@@ -34,12 +34,12 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler(GameIsFinishedException.class)
-    public ResponseEntity<ErrorsResponse> handleGameNotFound(GameIsFinishedException exception) {
+    public ResponseEntity<ErrorsResponse> handleGameIsFinished(GameIsFinishedException exception) {
         HttpStatus responseStatus = resolveAnnotatedResponseStatus(exception);
         List<ErrorItem> errors = new ArrayList<>();
-        errors.add(new ErrorItem("not_found", exception.getMessage()));
+        errors.add(new ErrorItem("game_is_finished", exception.getMessage()));
         ErrorsResponse body = new ErrorsResponse(errors);
-        return ResponseEntity.ok(body);
+        return new ResponseEntity(body, responseStatus);
     }
 
     private HttpStatus resolveAnnotatedResponseStatus(RuntimeException exception) {

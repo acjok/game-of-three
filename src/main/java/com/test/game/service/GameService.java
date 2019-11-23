@@ -25,7 +25,7 @@ public class GameService {
     }
 
     public CurrentMove createGame(Boolean playerStarts) {
-        Long startNumber = 10L + (int) (Math.random() * 50);
+        Long startNumber = 10L + (int) (Math.random() * 1000);
         Game game = new Game(startNumber);
         gameRepository.save(game);
         CurrentMove currentMove = new CurrentMove(game.getId(), game.getStartNumber(), buildMessage(null));
